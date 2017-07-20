@@ -19,31 +19,38 @@ namespace BagOLoot.Tests
     [Fact]
     public void ListAllChidrenGettingAToy()
     {
-        int childId= 1;
-        string childToAdd= "Ryan";
-        string toyToAdd= "Baseball";
+        // int childId= 1;
+        // string childToAdd= "Ryan";
+        // string toyToAdd= "Baseball";
       
-        List<int> goodChildren= _manager.GetAllChildrenWhoAreQualifiedForToys();
+        // List<int> goodChildren= _manager.GetAllChildrenWhoAreQualifiedForToys();
 
 
-        Assert.True(goodChildren.Count ==0);
-        _register.AddChild(childToAdd);
-        int returnedChildId= _register.GetChildId(childToAdd);
-        _assign.AddToyToBag(toyToAdd, childId);
+        // Assert.True(goodChildren.Count ==0);
+        // _register.AddChild(childToAdd);
+        // int returnedChildId= _register.GetChildId(childToAdd);
+        // _assign.AddToyToBag(toyToAdd, childId);
 
         
-        List<int> goodChildrenAfterAdd= _manager.GetAllChildrenWhoAreQualifiedForToys();
+        // List<int> goodChildrenAfterAdd= _manager.GetAllChildrenWhoAreQualifiedForToys();
 
-        Assert.True(goodChildrenAfterAdd.Count >= 1);
+        // Assert.True(goodChildrenAfterAdd.Count >= 1);
+
+       List<int>toys= _manager.GetEveryToyThatHasBeenAssignedToAChild();
+       List<int> kidsWhoGetToys= _manager.GetAllChildrenWhoAreQualifiedForToys(toys);
+       Assert.NotNull(kidsWhoGetToys);
+
+        
     }
     [Fact]
     public void ListAllToysForAGivenChild()
     {
         int ChildID= 3;
-        List<int> toys= _manager.GetEveryToyInOrderToGetEveryChild(ChildID);
+        List<int> toys= _manager.GetEveryToyInOrderToGetAChild(ChildID);
         Assert.True(toys.Count >= 0);
 
     }
+    [Fact]
     public void DeliverAllTheToys()
     {
         int childId= 4;

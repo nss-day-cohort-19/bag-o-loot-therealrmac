@@ -34,11 +34,20 @@ namespace BagOLoot
                 bool childId = registry.AddChild(childName);
                 Console.WriteLine(childId);
             }
-            // if (choice == 2)
-            // {
-            //     Console.WriteLine("Assign toy to which child?");
-            //     Console.Write ("> ");
-            // }
+            if (choice == 2)
+            {
+                Console.WriteLine("Assign toy to which child?");
+                
+                ChildRegister registry= new ChildRegister();
+                List<string> listofchildren= registry.GetChildren();
+                int counter=1;
+                foreach(string child in listofchildren)
+                {
+                    Console.WriteLine(counter + ". " + child);
+                    counter++;
+                }
+                Console.Write ("> ");
+            }
             // if (choice ==3)
             // {
             //     Console.WriteLine("Remove toy from which child?");
